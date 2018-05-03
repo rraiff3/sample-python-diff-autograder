@@ -23,10 +23,10 @@ A reference solution which will be used to generate the expected outcome for all
 
 A bash script that creates the expected test output using the reference solution. **Leave this unchanged when creating your own autograder.**
 
-## apt-get<i></i>.sh
+## `apt-get.sh`
 A bash script for installing any necessary dependencies for the assignment.
 
-## requirements<i></i>.txt
+## `requirements.txt`
 A list (newline-separated) of any Python packages that need to be installed.
 
 ## requirements3<i></i>.txt
@@ -41,3 +41,64 @@ A bash script describing the tests to be run. See [this page](https://github.com
 A bash script for generating the results of the student submission. At the top of this file, you must specify the expected student submisson files. This assignment expects files countToN.py, helloFile.py, helloWorld.py, helloStderr.py, readFile.py, and readStdin.py. Thus, grade.sh begins with:
 
 > EXPECTED_FILES="countToN.py helloFile.py helloWorld.py helloStderr.py readFile.py readStdin.py "
+
+
+
+# Instructions
+
+## Step 1: Clone this template
+
+* Create a new empty private repo, e.g. with the name PRIVATE-cs8-s18-labxx-gs
+* Clone the empty repo with `git clone <url>`
+*  `cd` into that directory:
+   > `cd PRIVATE-cs8-s18-labxx-gs`
+* Add a remote for this sample repo via: 
+   > `git remote add template git@github.com:ucsb-gradescope-tools/sample-python-diff-autograder.git`
+* Pull from this sample repo via `git pull template master`
+* Push to origin with `git push origin master`
+
+## Step 2: Edit the template for your assignment (required)
+
+* In `grade.sh` edit the environment variable `EXPECTED_FILES` to list the files you expect the student to submit.  Only these
+   will be copied from the student submission into the space where the assignment is graded.
+   
+   If you prefer *all* files to be copied in, edit the `grade.sh` script to copy all files from `/autograder/submission` into
+   the target directory.
+   
+* Edit the `diffs.sh` file to put in the tests that you want to run, along with shell script comments
+   containing JSON indicating the tests.
+
+* Put a reference solution into REFERENCE-SOLUTION
+
+## Step 3: Test your autograder locally (optional)
+
+To test your autograder locally:
+
+
+Try putting a correct sample solution in the SAMPLE-SOLUTION-1 directory and an incorrect sample solution in the SAMPLE-SOLUTION-2 directory.  (You have the option of creating additional SAMPLE-SOLUTION-nn directories, as few or as many as you see fit if you want to test a wider range of solution possibilities.)
+
+
+To check what will happen, run:
+* First, run `./MAKE-REFERENCE.sh` to generate the output of the reference solution
+* Then try grading each of your sample solutions:
+   * `./grade.sh SAMPLE-SOLUTION-1`
+   * `./grade.sh SAMPLE-SOLUTION-2` 
+   * etc.
+
+(When converting assignments from UCSB's submit.cs, you might adapt a "perfect" solution and a "flawed" solution from among previous student submissions, by looking at the grade assigned by submit.cs)
+
+In each case, look at the file `results.json` to see whether it reflects what you expect the resulting grade to be.   
+
+## Step 4: Create an `Autograder.zip` using the [link-gs-zip-with-repo](https://github.com/ucsb-gradescope-tools/link-gs-zip-with-repo) tool.
+   
+* Clone the [link-gs-zip-with-repo](https://github.com/ucsb-gradescope-tools/link-gs-zip-with-repo).
+* In that repo, edit `env.sh` to point to your repo.  You don't need to commit that change.
+* Run the script `./make_deploy_keys.sh` and upload your deploy key to the new repo you created for your assignment.
+* Run the script `./make_autograder_zip.sh` and then upload the `Autograder.zip` to Gradescope.
+
+You are now ready to test your autograded assignment.
+   
+# Decorator reference
+
+As quick reference, here are examples of the decorators you can use.
+   
