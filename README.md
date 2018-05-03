@@ -34,7 +34,7 @@ A list (newline-separated) of any **Python 3** packages that need to be installe
 
 ## diffs<i></i>.sh
 
-A bash script describing the tests to be run. See [this page](https://github.com/ucsb-gradescope-tools/gs-diff-based-testing/blob/master/README.md) for further documentation.
+A bash script describing the tests to be run. See [this page](https://github.com/ucsb-gradescope-tools/gs-diff-based-testing/blob/master/README.md) for further documentation, especially [this handy reference to the annotations](https://github.com/ucsb-gradescope-tools/gs-diff-based-testing/blob/master/README.md#reference)
 
 ## grade<i></i>.sh
 
@@ -66,7 +66,7 @@ A bash script for generating the results of the student submission. At the top o
    the target directory.
    
 * Edit the `diffs.sh` file to put in the tests that you want to run, along with shell script comments
-   containing JSON indicating the tests.
+   containing JSON indicating the tests.  [Handy reference to the annotations](https://github.com/ucsb-gradescope-tools/gs-diff-based-testing/blob/master/README.md#reference)
 
 * Put a reference solution into REFERENCE-SOLUTION
 
@@ -98,7 +98,4 @@ In each case, look at the file `results.json` to see whether it reflects what yo
 
 You are now ready to test your autograded assignment.
    
-# Decorator reference
 
-As quick reference, here are examples of the decorators you can use.
-   
