@@ -1,7 +1,6 @@
 #!/bin/sh
 
-EXPECTED_FILES="countToN.py helloFile.py helloWorld.py helloStderr.py \
-                readFile.py readStdin.py "
+EXPECTED_FILES="bob.txt tom.txt michelle.txt"
 
 DIFF_TOOLS=gs-diff-based-testing
 
